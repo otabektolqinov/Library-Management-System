@@ -2,6 +2,7 @@ package com.example.Library.Management.System.controller;
 
 import com.example.Library.Management.System.dto.BookDto;
 import com.example.Library.Management.System.service.BookService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +19,13 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping("/create")
-    public String getBookCreatePage(){
+    public String getBookCreatePage() {
         return "create-book";
 
     }
 
     @PostMapping("/create")
-    public String createBook(@ModelAttribute BookDto dto, Model model){
+    public String createBook(@ModelAttribute BookDto dto, Model model) {
         bookService.createBook(dto);
         return "redirect:book/success";
     }
@@ -35,7 +36,8 @@ public class BookController {
     }
 
     @GetMapping("/get-all")
-    public String getAllBooks(){
+    public String getAllBooks() {
+        return null;
 
     }
 }
