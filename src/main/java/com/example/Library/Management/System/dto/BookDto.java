@@ -19,6 +19,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class BookDto {
 
+    private Long id;
     private String title;
     private String author;
     private String description;
@@ -27,7 +28,7 @@ public class BookDto {
     private Publisher publisher;
     private LocalDate publishedDate;
     private Long count;
-    private String categoryDto;
+    private String category;
     private String imageUrl;
 
 }

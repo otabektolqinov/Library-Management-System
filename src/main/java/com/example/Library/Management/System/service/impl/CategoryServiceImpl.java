@@ -36,7 +36,11 @@ public class CategoryServiceImpl implements CategoryService {
                 .name(value.getName())
                 .build()).orElse(null);
 
+    }
 
+    public Category findCategoryByName(String name){
+        Optional<Category> category = categoryRepository.findCategoryByName(name);
+        return category.orElse(null);
     }
 
 

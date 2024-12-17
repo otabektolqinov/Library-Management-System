@@ -21,18 +21,18 @@ public class Book extends BaseEntity{
     private String description;
     private String language;
     private Integer pages;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
     private LocalDate publishedDate;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Audio audio;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private BookFile file;
     private Long count;
     @OneToMany(mappedBy = "book")
     private List<Transaction> transactions;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
     @Column(columnDefinition = "TEXT")

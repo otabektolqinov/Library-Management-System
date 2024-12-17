@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>Book List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container my-5">
+    <div class="row g-4">
+        <div th:each="book : ${books}" class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img th:src="@{${book.getImageUrl()}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${book.getTitle()}"></h5>
+                    <p class="card-text" th:text="${book.getDescription()}"></p>
+                    <p class="card-text" th:text="${book.getPublishedDate()}"></p>
+                    <a th:href="@{${book.getId()}}" class="btn btn-primary">View</a>
+                    <a th:href="@{{bookId}/update(bookId=${book.id})}" class="btn btn-warning">Edit</a>
+                    <a th:href="@{{bookId}/delete(bookId=${book.id})}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

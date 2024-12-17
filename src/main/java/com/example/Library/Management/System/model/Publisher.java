@@ -1,9 +1,6 @@
 package com.example.Library.Management.System.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -24,7 +21,7 @@ public class Publisher extends BaseEntity{
     private String phoneNumber;
     @Column(columnDefinition = "TEXT")
     private String imageUrl;
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
     private List<Book> bookList;
 
 }

@@ -16,42 +16,42 @@
 </head>
 <body>
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-  <form class="bg-white p-4 rounded shadow w-100" name="registrationForm" th:action="@{/book/create}" th:method="post">
+  <form class="bg-white p-4 rounded shadow w-100" name="registrationForm" th:action="@{/book/{bookId}/update(bookId=${bookId})}" th:method="post">
     <div class="mb-3">
       <label for="title" class="form-label">Title: </label>
-      <input type="text" class="form-control" id="title" name="title">
+      <input type="text" class="form-control" id="title" name="title" th:value="${book.getTitle()}">
     </div>
     <div class="mb-3">
       <label for="author" class="form-label">Author:</label>
-      <input type="text" class="form-control" id="author" name="author">
+      <input type="text" class="form-control" id="author" name="author" th:value="${book.getAuthor()}">
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description: </label>
-      <input type="text" class="form-control" id="description" name="description">
+      <input type="text" class="form-control" id="description" name="description" th:value="${book.getDescription()}">
     </div>
     <div class="mb-3">
       <label for="language" class="form-label">Language: </label>
-      <input type="text" class="form-control" id="language" name="language">
+      <input type="text" class="form-control" id="language" name="language" th:value="${book.getLanguage()}">
     </div>
     <div class="mb-3">
       <label for="pages" class="form-label">Page count: </label>
-      <input type="number" class="form-control" id="pages" name="pages">
+      <input type="number" class="form-control" id="pages" name="pages" th:value="${book.getPages()}">
     </div>
     <div class="mb-3">
       <label for="publishedDate" class="form-label">Published date: </label>
-      <input type="date" class="form-control" id="publishedDate" name="publishedDate">
+      <input type="date" class="form-control" id="publishedDate" name="publishedDate" th:value="${book.getPublishedDate()}">
     </div>
     <div class="mb-3">
       <label for="count" class="form-label">Count: </label>
-      <input type="number" class="form-control" id="count" name="count">
+      <input type="number" class="form-control" id="count" name="count" th:value="${book.getCount()}">
     </div>
     <div class="mb-3">
-      <label for="category" class="form-label">Category: </label>
-      <input type="text" class="form-control" id="category" name="category">
+      <label for="categoryDto" class="form-label">Category: </label>
+      <input type="text" class="form-control" id="categoryDto" name="categoryDto" th:value="${book.getCategory()}">
     </div>
     <div class="mb-3">
       <label for="imageUrl" class="form-label">Image url: </label>
-      <input type="text" class="form-control" id="imageUrl" name="imageUrl">
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl" th:value="${book.getImageUrl()}">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
